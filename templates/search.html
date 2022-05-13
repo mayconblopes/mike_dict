@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}{{ word | title }} | Definições por @mayconblopes {% endblock %}
+{% block img %}<img class="profile-image mb-3 rounded-circle mx-auto" src="{% static 'assets/images/dictionary.jpg' %}" alt="{{ results.word | title }} | Definition of {{ results.word | title }} by @mayconblopes" >{% endblock %}
+{% block content %}
+<div>
+    <h2 align="center"> {{ word | title }} </h2>
+    <br>
+    <p>
+       {% for text in scraping_text %}
+<!--        {% if 'Etimologia' not in text and ').' not in text%}-->
+        <p>{{ text | title }}</p>
+<!--        {% endif %}-->
+       {% endfor %}
+    </p>
+    <br>
+</div>
+{% endblock %}
